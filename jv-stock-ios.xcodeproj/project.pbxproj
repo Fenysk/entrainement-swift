@@ -11,6 +11,7 @@
 		F6B866F42ADD27BB000593DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B866F32ADD27BB000593DC /* ContentView.swift */; };
 		F6B866F62ADD27BD000593DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B866F52ADD27BD000593DC /* Assets.xcassets */; };
 		F6B866F92ADD27BD000593DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B866F82ADD27BD000593DC /* Preview Assets.xcassets */; };
+		F6B867022ADD2B4D000593DC /* GameMiniatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B867012ADD2B4D000593DC /* GameMiniatureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		F6B866F32ADD27BB000593DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F6B866F52ADD27BD000593DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6B866F82ADD27BD000593DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F6B867012ADD2B4D000593DC /* GameMiniatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMiniatureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				F6B866F12ADD27BB000593DC /* jv_stock_iosApp.swift */,
 				F6B866F32ADD27BB000593DC /* ContentView.swift */,
+				F6B867012ADD2B4D000593DC /* GameMiniatureView.swift */,
 				F6B866F52ADD27BD000593DC /* Assets.xcassets */,
 				F6B866F72ADD27BD000593DC /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B867022ADD2B4D000593DC /* GameMiniatureView.swift in Sources */,
 				F6B866F42ADD27BB000593DC /* ContentView.swift in Sources */,
 				F6B866F22ADD27BB000593DC /* jv_stock_iosApp.swift in Sources */,
 			);
