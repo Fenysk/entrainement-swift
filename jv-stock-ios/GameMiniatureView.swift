@@ -24,10 +24,21 @@ struct GameMiniatureView: View {
                     .font(.title3)
             }
             Spacer()
-            // if price > 30 text is red. if between 10 and 20 text is orange. else text is green
-            Text("\(game.price) €")
-                .bold()
-                .foregroundColor(game.price >= 50 ? .red : game.price >= 10 ? .yellow : .green)
+            
+            VStack(alignment: .trailing) {
+                Text("\(game.price) €")
+                    .bold()
+                    .foregroundColor(game.price >= 50 ? .red : game.price >= 10 ? .yellow : .green)
+
+                Text(
+                        game.etat == 0 ? "Pour pièces" :
+                        game.etat == 1 ? "Mauvais état" :
+                        game.etat == 2 ? "Moyen" :
+                        game.etat == 3 ? "Bon" :
+                        game.etat == 4 ? "Très bon" :
+                                         "Neuf"
+                    )
+            }
         }
     }
 }

@@ -9,28 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
 
+    @State private var gamesListDisplayed = false
+    
+    @State private var games:[Game] = []
+
     struct Game {
         let name: String
         let console: String
         let price: Int
+        let etat: Double
     }
-    
-    let games:[Game] = [
-        Game(name: "The Legend of Zelda: OOT", console: "N64", price: 60),
-        Game(name: "Super Mario Sunshine", console: "GameCube", price: 50),
-        Game(name: "The Legend of Zelda: BOTW", console: "Switch", price: 30),
-        Game(name: "The Last of Us", console: "PS4", price: 5),
-    ]
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Jeux vidéo en stock")
-                .font(.title)
-                .bold()
-                .padding(.bottom, 20)
+            AddGameView(games: $games)
+
+
+            Spacer()
+
+
+            // foreach
             ForEach(games, id: \.name) { game in
                 GameMiniatureView(game: game)
             }
+             
         }.padding()
     }
 }
