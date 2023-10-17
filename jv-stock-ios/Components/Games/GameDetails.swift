@@ -9,22 +9,24 @@ import SwiftUI
 
 struct GameDetails: View {
     
-    let game: GamesView.Game
+    @ObservedObject var game: GamesView.Game
 
     var body: some View {
             
         VStack(alignment: .leading) {
-            Text(game.console)
+            TextField("Nom", text: $game.name)
                 .font(.subheadline)
                 .padding(.bottom, 5)
-            Text(game.edition)
+            TextField("Console", text: $game.console)
                 .font(.subheadline)
                 .padding(.bottom, 5)
-            Text(game.region)
+            TextField("Edition", text: $game.edition)
                 .font(.subheadline)
                 .padding(.bottom, 5)
-            // formated date in local
-            Text(String(game.released_year))
+            TextField("Region", text: $game.region)
+                .font(.subheadline)
+                .padding(.bottom, 5)
+            TextField("Année de sortie", value: $game.released_year, formatter: NumberFormatter())
                 .font(.subheadline)
                 .padding(.bottom, 5)
             Text(game.barcode)
