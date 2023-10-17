@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddGameView: View {
+struct AddGameModal: View {
     
     @State private var gameName = ""
     @State private var gameConsole = ""
@@ -16,7 +16,7 @@ struct AddGameView: View {
     @State private var gameBuyedAt = Date()
     @State private var gameColor = Color.red
     
-    @Binding var games:[ContentView.Game]
+    @Binding var games:[HomeView.Game]
     
     @Environment(\.dismiss) var dismiss
     
@@ -59,7 +59,7 @@ struct AddGameView: View {
             ColorPicker("Couleur", selection: $gameColor)
 
             Button("Valider") {
-                games.append(ContentView.Game(
+                games.append(HomeView.Game(
                     name: gameName,
                     console: gameConsole,
                     price: gamePrice,

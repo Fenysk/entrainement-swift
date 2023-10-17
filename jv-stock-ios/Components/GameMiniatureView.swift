@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameMiniatureView: View {
 
-    let game: ContentView.Game
+    let game: HomeView.Game
 
     var body: some View {
         HStack() {

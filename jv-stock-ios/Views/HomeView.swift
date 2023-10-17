@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
 
     @State private var gamesListDisplayed = false
     @State private var newGameModalDisplayed = false
@@ -25,35 +25,25 @@ struct ContentView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("newGameModalDisplayed: \(newGameModalDisplayed.description)")
+            Text("Jeux en stock")
+                .font(.title)
+                .fontWeight(.bold)
+            
             Button("Créer un nouveau jeu") {
                 newGameModalDisplayed.toggle()                
-            }
-            .sheet(isPresented: $newGameModalDisplayed) {
-                AddGameView(games: $games)
-            }
-
-            Spacer()
-
+            }.sheet(isPresented: $newGameModalDisplayed) {
+                    AddGameModal(games: $games)
+                }
 
             Button("Effacer les jeux") {
                 games.removeAll()
             }
             
-            List(games, id: \.name) { game in
-                GameMiniatureView(game: game)
+            if(games.count > 0) {
+                List(games, id: \.name) { game in
+                    GameMiniatureView(game: game)
+                }
             }
-             
         }
-    }
-}
-
-// #Preview {
-//     ContentView()
-// }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
