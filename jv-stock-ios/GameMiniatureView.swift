@@ -15,7 +15,7 @@ struct GameMiniatureView: View {
         HStack() {
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: 80, height: 80)
-                .foregroundColor(.gray)
+                .foregroundColor(game.color)
             VStack(alignment: .leading) {
                 Text(game.name)
                     .font(.title2)
@@ -38,6 +38,8 @@ struct GameMiniatureView: View {
                         game.etat == 4 ? "Très bon" :
                                          "Neuf"
                     )
+                
+                Text("\(game.buyed_at)")
             }
         }
     }

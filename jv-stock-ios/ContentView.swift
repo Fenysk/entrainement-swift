@@ -18,6 +18,8 @@ struct ContentView: View {
         let console: String
         let price: Int
         let etat: Double
+        let buyed_at: Date
+        let color: Color
     }
 
     var body: some View {
@@ -28,9 +30,15 @@ struct ContentView: View {
             Spacer()
 
 
-            // foreach
-            ForEach(games, id: \.name) { game in
-                GameMiniatureView(game: game)
+            Button("Effacer les jeux") {
+                games.removeAll()
+            }
+            
+            ScrollView {
+                // foreach
+                ForEach(games, id: \.name) { game in
+                    GameMiniatureView(game: game)
+                }
             }
              
         }.padding()

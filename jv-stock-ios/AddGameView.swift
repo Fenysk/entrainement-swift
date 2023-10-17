@@ -13,6 +13,8 @@ struct AddGameView: View {
     @State private var gameConsole = ""
     @State private var gamePrice = 0
     @State private var gameEtat = 3.0
+    @State private var gameBuyedAt = Date()
+    @State private var gameColor = Color.red
     
     @Binding var games:[ContentView.Game]
     
@@ -31,10 +33,12 @@ struct AddGameView: View {
                 .textFieldStyle(.roundedBorder)
                 .accentColor(.green)
 
-            TextField("Prix", value: $gamePrice, formatter: NumberFormatter())
-                .textFieldStyle(.roundedBorder)
-                .accentColor(.green)
-                .keyboardType(.numberPad)
+            // Stepper for price with number in center. 0 to inifiy, step 5
+            Stepper(value: $gamePrice, in: 0...Int.max, step: 5) {
+                TextField("Prix", value: $gamePrice, formatter: NumberFormatter())
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.numberPad)
+            }
 
             Slider(value: $gameEtat, in: 1...5, step: 1)
                 .accentColor(.green)
@@ -48,9 +52,19 @@ struct AddGameView: View {
                                     "Neuf"
                 )
             
+            DatePicker("Acheté le", selection: $gameBuyedAt, displayedComponents: [.date])
+
+            ColorPicker("Couleur", selection: $gameColor)
 
             Button("Valider") {
-                games.append(ContentView.Game(name: gameName, console: gameConsole, price: gamePrice, etat: gameEtat))
+                games.append(ContentView.Game(
+                    name: gameName,
+                    console: gameConsole,
+                    price: gamePrice,
+                    etat: gameEtat,
+                    buyed_at: gameBuyedAt,
+                    color: gameColor
+                    ))
                 
                 gameName = ""
                 gameConsole = ""
