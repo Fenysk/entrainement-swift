@@ -10,15 +10,15 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            HomeView()
-                .foregroundColor(.blue)
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
             GamesView()
                 .foregroundColor(.red)
                 .tabItem {
                     Label("Games", systemImage: "gamecontroller")
+                }
+            HomeView()
+                .foregroundColor(.blue)
+                .tabItem {
+                    Label("Home", systemImage: "house")
                 }
             PurchasesView()
                 .foregroundColor(.green)
@@ -30,6 +30,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Sales", systemImage: "dollarsign.circle")
                 }
+
         }.accentColor(.black)
     }
 }

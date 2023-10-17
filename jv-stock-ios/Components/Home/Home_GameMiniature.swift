@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameMiniatureView: View {
+struct Home_GameMiniature: View {
 
     let game: HomeView.Game
 

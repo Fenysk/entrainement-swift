@@ -40,8 +40,11 @@ struct HomeView: View {
             }
             
             if(games.count > 0) {
-                List(games, id: \.name) { game in
-                    GameMiniatureView(game: game)
+                // List games
+                List {
+                    ForEach(games, id: \.name) { game in
+                        Home_GameMiniature(game: game)
+                    }
                 }
             }
         }
