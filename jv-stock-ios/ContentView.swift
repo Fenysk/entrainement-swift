@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var gamesListDisplayed = false
+    @State private var newGameModalDisplayed = false
     
     @State private var games:[Game] = []
 
@@ -24,8 +25,13 @@ struct ContentView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            AddGameView(games: $games)
-
+            Text("newGameModalDisplayed: \(newGameModalDisplayed.description)")
+            Button("Créer un nouveau jeu") {
+                newGameModalDisplayed.toggle()                
+            }
+            .sheet(isPresented: $newGameModalDisplayed) {
+                AddGameView(games: $games)
+            }
 
             Spacer()
 
@@ -34,14 +40,11 @@ struct ContentView: View {
                 games.removeAll()
             }
             
-            ScrollView {
-                // foreach
-                ForEach(games, id: \.name) { game in
-                    GameMiniatureView(game: game)
-                }
+            List(games, id: \.name) { game in
+                GameMiniatureView(game: game)
             }
              
-        }.padding()
+        }
     }
 }
 

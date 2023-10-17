@@ -18,6 +18,8 @@ struct AddGameView: View {
     
     @Binding var games:[ContentView.Game]
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {        
         
         VStack(alignment: .leading) {
@@ -69,7 +71,11 @@ struct AddGameView: View {
                 gameName = ""
                 gameConsole = ""
                 gamePrice = 0
+
+                dismiss()
             }
-        }
+
+            Spacer()
+        }.padding()
     }
 }

@@ -13,7 +13,7 @@ struct GameMiniatureView: View {
 
     var body: some View {
         HStack() {
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 10)
                 .frame(width: 80, height: 80)
                 .foregroundColor(game.color)
             VStack(alignment: .leading) {
@@ -39,7 +39,8 @@ struct GameMiniatureView: View {
                                          "Neuf"
                     )
                 
-                Text("\(game.buyed_at)")
+                Text("Acheté le \(game.buyed_at.formatted(date: .numeric, time: .omitted))")
+                    .font(.caption)
             }
         }
     }
